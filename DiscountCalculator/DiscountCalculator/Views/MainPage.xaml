@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiscountCalculator.Views.MainPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="VerticalOptions"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Keyboard"
+                    Value="Numeric" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="VerticalOptions"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+
+    </ContentPage.Resources>
+
+    <Grid ColumnDefinitions="*,*"
+          RowDefinitions="50,50,50,Auto,Auto"
+          RowSpacing="0">
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Text="Gold price (per gram)" />
+        <Entry Grid.Row="0"
+               Grid.Column="1"
+               Text="{Binding GoldPrice}" />
+
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               Text="Weight of the item (in grams)" />
+        <Entry Grid.Row="1"
+               Grid.Column="1"
+               Text="{Binding Weight}" />
+
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               Text="Discount (in percentage)" />
+        <Entry Grid.Row="2"
+               Grid.Column="1"
+               Text="{Binding Discount}" />
+
+        <Button Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Text="Calculate"
+                Command="{Binding CalculateCommand}" />
+
+        <Label Grid.Row="4"
+               Grid.ColumnSpan="2"
+               Text="{Binding Result, StringFormat='Result is : {0}'}" />
+
+    </Grid>
+
+
+</ContentPage>
